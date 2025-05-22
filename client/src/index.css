@@ -38,17 +38,17 @@
   --card-foreground: 0 0% 98%;
   --border: 240 3.7% 15.9%;
   --input: 240 3.7% 15.9%;
-  --primary: 60 39% 64%;
+  --primary: 14 58% 70%; /* Darker version of F6DBD4 for dark mode */
   --primary-foreground: 0 0% 98%;
-  --secondary: 53 22% 45%;
+  --secondary: 14 40% 45%; /* Even darker shade for secondary */
   --secondary-foreground: 0 0% 98%;
-  --accent: 240 3.7% 15.9%;
+  --accent: 14 30% 25%;
   --accent-foreground: 0 0% 98%;
-  --success: 108 36% 55%;
+  --success: 14 58% 65%;
   --success-foreground: 0 0% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --ring: 240 4.9% 83.9%;
+  --ring: 14 58% 70%;
 }
 
 @layer base {
