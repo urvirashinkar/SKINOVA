@@ -5,25 +5,25 @@
 :root {
   --background: 0 0% 100%;
   --foreground: 20 14.3% 4.1%;
-  --muted: 60 4.8% 95.9%;
-  --muted-foreground: 25 5.3% 44.7%;
+  --muted: 14 30% 96%;
+  --muted-foreground: 20 5.9% 45%;
   --popover: 0 0% 100%;
   --popover-foreground: 20 14.3% 4.1%;
   --card: 0 0% 100%;
   --card-foreground: 20 14.3% 4.1%;
-  --border: 20 5.9% 90%;
-  --input: 20 5.9% 90%;
-  --primary: 60 39% 64%; /* #C5C27E */
-  --primary-foreground: 0 0% 100%;
-  --secondary: 53 22% 45%; /* #8D8A5A */
-  --secondary-foreground: 0 0% 100%;
-  --accent: 60 4.8% 95.9%;
-  --accent-foreground: 24 9.8% 10%;
-  --success: 108 36% 55%; /* #6BBF59 */
+  --border: 14 30% 90%;
+  --input: 14 30% 90%;
+  --primary: 14 58% 90%; /* #F6DBD4 */
+  --primary-foreground: 20 14.3% 4.1%;
+  --secondary: 14 30% 80%; /* Lighter shade of F6DBD4 */
+  --secondary-foreground: 20 14.3% 4.1%;
+  --accent: 14 58% 95%;
+  --accent-foreground: 14 35% 30%;
+  --success: 14 58% 80%; /* Similar to primary but slightly darker */
   --success-foreground: 0 0% 100%;
   --destructive: 0 84.2% 70.2%; /* #FF6B6B */
   --destructive-foreground: 0 0% 100%;
-  --ring: 60 39% 64%;
+  --ring: 14 58% 90%;
   --radius: 0.5rem;
 }
 

@@ -67,7 +67,7 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        olive: "#8D8A5A",
+        skin: "#F6DBD4",
         error: "#FF6B6B"
       },
       fontFamily: {
