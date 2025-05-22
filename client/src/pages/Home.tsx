@@ -1,5 +1,6 @@
 import { Link } from 'wouter';
 import FaceScanButton from '@/components/FaceScanButton';
+import skinAnalysisImage from "../assets/skin-analysis-image.png";
 
 const Home: React.FC = () => {
   return (
@@ -16,8 +17,8 @@ const Home: React.FC = () => {
         </div>
         <div className="md:w-1/2">
           <img 
-            src="https://pixabay.com/get/g7cf0cb2f944de30257d250c6478447f845883f9c28bd02bff66ede2fc393f398322535d965a16b7e6ca8c90508ffbd5d3ca04722edc597ddbbada966b75e5410_1280.jpg" 
-            alt="AI skin analysis visualization" 
+            src={skinAnalysisImage} 
+            alt="Beautiful skin analysis portrait" 
             className="rounded-2xl shadow-lg w-full h-auto object-cover"
           />
         </div>
