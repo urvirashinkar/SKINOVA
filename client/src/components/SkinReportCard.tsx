@@ -45,7 +45,7 @@ const SkinReportCard: React.FC<SkinReportCardProps> = ({ analysis }) => {
       <div className="space-y-4">
         {metrics.map((metric, index) => (
           <div key={index}>
-            <h3 className="text-lg font-medium text-olive mb-2">{metric.title}</h3>
+            <h3 className="text-lg font-medium text-skin mb-2">{metric.title}</h3>
             <div className="flex items-center">
               <div className="w-full bg-gray-200 rounded-full h-2.5">
                 <div 

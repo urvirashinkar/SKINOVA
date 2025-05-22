@@ -48,25 +48,25 @@ const Journal: React.FC = () => {
                 className={`mood-btn p-2 rounded-full transition-colors ${selectedMood === 'sad' ? 'bg-primary/20' : 'hover:bg-primary/10'}`}
                 onClick={() => handleMoodSelection('sad')}
               >
-                <i className={`fas fa-sad-tear text-2xl ${selectedMood === 'sad' ? 'text-olive' : 'text-gray-400'}`}></i>
+                <i className={`fas fa-sad-tear text-2xl ${selectedMood === 'sad' ? 'text-skin' : 'text-gray-400'}`}></i>
               </button>
               <button 
                 className={`mood-btn p-2 rounded-full transition-colors ${selectedMood === 'neutral' ? 'bg-primary/20' : 'hover:bg-primary/10'}`}
                 onClick={() => handleMoodSelection('neutral')}
               >
-                <i className={`fas fa-meh text-2xl ${selectedMood === 'neutral' ? 'text-olive' : 'text-gray-400'}`}></i>
+                <i className={`fas fa-meh text-2xl ${selectedMood === 'neutral' ? 'text-skin' : 'text-gray-400'}`}></i>
               </button>
               <button 
                 className={`mood-btn p-2 rounded-full transition-colors ${selectedMood === 'happy' ? 'bg-primary/20' : 'hover:bg-primary/10'}`}
                 onClick={() => handleMoodSelection('happy')}
               >
-                <i className={`fas fa-smile text-2xl ${selectedMood === 'happy' ? 'text-olive' : 'text-gray-400'}`}></i>
+                <i className={`fas fa-smile text-2xl ${selectedMood === 'happy' ? 'text-skin' : 'text-gray-400'}`}></i>
               </button>
               <button 
                 className={`mood-btn p-2 rounded-full transition-colors ${selectedMood === 'amazing' ? 'bg-primary/20' : 'hover:bg-primary/10'}`}
                 onClick={() => handleMoodSelection('amazing')}
               >
-                <i className={`fas fa-grin-stars text-2xl ${selectedMood === 'amazing' ? 'text-olive' : 'text-gray-400'}`}></i>
+                <i className={`fas fa-grin-stars text-2xl ${selectedMood === 'amazing' ? 'text-skin' : 'text-gray-400'}`}></i>
               </button>
             </div>
           </div>

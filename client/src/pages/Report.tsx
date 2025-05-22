@@ -19,7 +19,7 @@ const Report: React.FC = () => {
               className="rounded-lg shadow w-full h-auto object-cover"
             />
             <div className="mt-4 bg-primary/10 p-4 rounded-lg">
-              <h3 className="font-medium text-olive text-lg mb-2">Scan Summary</h3>
+              <h3 className="font-medium text-skin text-lg mb-2">Scan Summary</h3>
               <div className="flex justify-between items-center mb-1">
                 <span className="text-gray-600">Scan Date:</span>
                 <span className="font-medium text-gray-800">{skinAnalysisData.scanDate}</span>
