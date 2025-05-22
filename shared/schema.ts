@@ -1,21 +1,38 @@
-import { pgTable, text, serial, integer, boolean, timestamp, json, pgEnum } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp, json, pgEnum, jsonb, index, varchar } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
+// Session storage table for Auth0 sessions
+export const sessions = pgTable(
+  "sessions",
+  {
+    sid: varchar("sid").primaryKey(),
+    sess: jsonb("sess").notNull(),
+    expire: timestamp("expire").notNull(),
+  },
+  (table) => [index("IDX_session_expire").on(table.expire)],
+);
+
 export const users = pgTable("users", {
-  id: serial("id").primaryKey(),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+  id: varchar("id").primaryKey().notNull(), // Auth0 user ID
+  email: text("email").unique(),
+  firstName: text("first_name"),
+  lastName: text("last_name"),
+  profileImageUrl: text("profile_image_url"),
   createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
+export const insertUserSchema = createInsertSchema(users).omit({
+  updatedAt: true,
+  createdAt: true,
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
+
+// For Auth0 integration
+export type UpsertUser = typeof users.$inferInsert;
 
 // Enums for journal entries
 export const moodEnum = pgEnum('mood', ['sad', 'neutral', 'happy', 'amazing']);
@@ -23,7 +40,7 @@ export const moodEnum = pgEnum('mood', ['sad', 'neutral', 'happy', 'amazing']);
 // Skin Analysis Table
 export const skinAnalysis = pgTable("skin_analysis", {
   id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
+  userId: varchar("user_id").references(() => users.id),
   scanDate: timestamp("scan_date").defaultNow(),
   scanQuality: text("scan_quality").notNull(),
   confidence: text("confidence").notNull(),
@@ -34,6 +51,7 @@ export const skinAnalysis = pgTable("skin_analysis", {
   fineLines: json("fine_lines").notNull(),
   photoUrl: text("photo_url"),
   createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
 });
 
 export const insertSkinAnalysisSchema = createInsertSchema(skinAnalysis).omit({
@@ -66,12 +84,13 @@ export type Product = typeof products.$inferSelect;
 // Journal Entries Table
 export const journalEntries = pgTable("journal_entries", {
   id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
+  userId: varchar("user_id").references(() => users.id),
   date: timestamp("date").defaultNow(),
   mood: moodEnum("mood").notNull(),
   notes: text("notes").notNull(),
   photoUrl: text("photo_url"),
   createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
 });
 
 export const insertJournalEntrySchema = createInsertSchema(journalEntries).omit({

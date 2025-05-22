@@ -1,5 +1,5 @@
 import { 
-  users, type User, type InsertUser,
+  users, type User, type InsertUser, type UpsertUser,
   skinAnalysis, type SkinAnalysis, type InsertSkinAnalysis,
   products, type Product, type InsertProduct,
   journalEntries, type JournalEntry, type InsertJournalEntry 
@@ -8,14 +8,15 @@ import { db } from "./db";
 import { eq } from "drizzle-orm";
 
 export interface IStorage {
-  // User methods
-  getUser(id: number): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
+  // User methods for Auth0 integration
+  getUser(id: string): Promise<User | undefined>;
+  getUserByEmail(email: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
+  upsertUser(user: UpsertUser): Promise<User>;
   
   // Skin Analysis methods
   getSkinAnalysis(id: number): Promise<SkinAnalysis | undefined>;
-  getUserSkinAnalyses(userId: number): Promise<SkinAnalysis[]>;
+  getUserSkinAnalyses(userId: string): Promise<SkinAnalysis[]>;
   createSkinAnalysis(analysis: InsertSkinAnalysis): Promise<SkinAnalysis>;
   
   // Products methods
@@ -25,25 +26,40 @@ export interface IStorage {
   
   // Journal Entry methods
   getJournalEntry(id: number): Promise<JournalEntry | undefined>;
-  getUserJournalEntries(userId: number): Promise<JournalEntry[]>;
+  getUserJournalEntries(userId: string): Promise<JournalEntry[]>;
   createJournalEntry(entry: InsertJournalEntry): Promise<JournalEntry>;
   deleteJournalEntry(id: number): Promise<boolean>;
 }
 
 export class DatabaseStorage implements IStorage {
   // User methods
-  async getUser(id: number): Promise<User | undefined> {
+  async getUser(id: string): Promise<User | undefined> {
     const [user] = await db.select().from(users).where(eq(users.id, id));
     return user;
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.username, username));
+  async getUserByEmail(email: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.email, email));
     return user;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
     const [user] = await db.insert(users).values(insertUser).returning();
+    return user;
+  }
+  
+  async upsertUser(userData: UpsertUser): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values(userData)
+      .onConflictDoUpdate({
+        target: users.id,
+        set: {
+          ...userData,
+          updatedAt: new Date(),
+        },
+      })
+      .returning();
     return user;
   }
 
@@ -53,7 +69,7 @@ export class DatabaseStorage implements IStorage {
     return analysis;
   }
 
-  async getUserSkinAnalyses(userId: number): Promise<SkinAnalysis[]> {
+  async getUserSkinAnalyses(userId: string): Promise<SkinAnalysis[]> {
     return db.select().from(skinAnalysis).where(eq(skinAnalysis.userId, userId));
   }
 
@@ -83,7 +99,7 @@ export class DatabaseStorage implements IStorage {
     return entry;
   }
 
-  async getUserJournalEntries(userId: number): Promise<JournalEntry[]> {
+  async getUserJournalEntries(userId: string): Promise<JournalEntry[]> {
     return db.select().from(journalEntries).where(eq(journalEntries.userId, userId));
   }
 
