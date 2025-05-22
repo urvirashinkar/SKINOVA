@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 100%;
+  --background: 60 33% 95%; /* #F4F4EF */
   --foreground: 20 14.3% 4.1%;
   --muted: 14 30% 96%;
   --muted-foreground: 20 5.9% 45%;
@@ -15,16 +15,16 @@
   --input: 14 30% 90%;
   --primary: 14 58% 90%; /* #F6DBD4 */
   --primary-foreground: 20 14.3% 4.1%;
-  --secondary: 14 30% 80%; /* Lighter shade of F6DBD4 */
-  --secondary-foreground: 20 14.3% 4.1%;
-  --accent: 14 58% 95%;
-  --accent-foreground: 14 35% 30%;
-  --success: 14 58% 80%; /* Similar to primary but slightly darker */
+  --secondary: 60 33% 64%; /* #C5C27E */
+  --secondary-foreground: 0 0% 100%;
+  --accent: 60 33% 95%;
+  --accent-foreground: 60 33% 30%;
+  --success: 60 33% 60%; /* Muted olive green */
   --success-foreground: 0 0% 100%;
   --destructive: 0 84.2% 70.2%; /* #FF6B6B */
   --destructive-foreground: 0 0% 100%;
-  --ring: 14 58% 90%;
-  --radius: 0.5rem;
+  --ring: 60 33% 64%;
+  --radius: 0.75rem;
 }
 
 .dark {

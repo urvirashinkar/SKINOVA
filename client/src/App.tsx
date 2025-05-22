@@ -11,6 +11,7 @@ import Report from "@/pages/Report";
 import Kit from "@/pages/Kit";
 import Journal from "@/pages/Journal";
 import Login from "@/pages/Login";
+import Landing from "@/pages/Landing";
 import Account from "@/pages/Account";
 import NotFound from "@/pages/not-found";
 
@@ -94,6 +95,7 @@ function Router() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/login" component={Login} />
+          <Route path="/landing" component={Landing} />
           <Route path="/report" component={Report} />
           <Route path="/kit" component={Kit} />
           <Route path="/journal" component={Journal} />
