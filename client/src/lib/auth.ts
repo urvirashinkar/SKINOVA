@@ -6,9 +6,21 @@ interface Auth0ProviderWithNavigateProps {
 }
 
 export const Auth0ProviderWithNavigate = ({ children }: Auth0ProviderWithNavigateProps) => {
+  // Get Auth0 configuration from environment variables
   const domain = import.meta.env.VITE_AUTH0_DOMAIN || '';
   const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID || '';
   const redirectUri = import.meta.env.VITE_AUTH0_REDIRECT_URI || window.location.origin;
+  
+  const onRedirectCallback = (appState: any) => {
+    window.history.replaceState(
+      {},
+      document.title,
+      appState?.returnTo || window.location.pathname
+    );
+    
+    // Navigate to landing page after login
+    window.location.href = '/landing';
+  };
 
   return (
     <Auth0Provider
@@ -17,6 +29,7 @@ export const Auth0ProviderWithNavigate = ({ children }: Auth0ProviderWithNavigat
       authorizationParams={{
         redirect_uri: redirectUri,
       }}
+      onRedirectCallback={onRedirectCallback}
     >
       {children}
     </Auth0Provider>

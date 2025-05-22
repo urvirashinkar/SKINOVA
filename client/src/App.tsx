@@ -110,16 +110,15 @@ function Router() {
 }
 
 function App() {
-  const domain = import.meta.env.VITE_AUTH0_DOMAIN || '';
-  const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID || '';
-  const redirectUri = import.meta.env.VITE_AUTH0_REDIRECT_URI || window.location.origin;
-
   return (
     <Auth0Provider
-      domain={domain}
-      clientId={clientId}
+      domain={import.meta.env.VITE_AUTH0_DOMAIN || ''}
+      clientId={import.meta.env.VITE_AUTH0_CLIENT_ID || ''}
       authorizationParams={{
-        redirect_uri: redirectUri,
+        redirect_uri: window.location.origin
+      }}
+      onRedirectCallback={(appState) => {
+        window.location.href = appState?.returnTo || '/landing';
       }}
     >
       <ThemeProvider>
