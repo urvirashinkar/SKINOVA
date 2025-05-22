@@ -1,0 +1,67 @@
+Replit Prompt: "Auth0-Powered Elegant Login Page for GlowScan Skin App"
+
+🎯 Objective:
+Create a beautifully designed login page for the GlowScan AI Skincare App, powered by Auth0 for secure real-user authentication. The login should support Google, Apple, and other providers, and redirect to the main landing page after successful login.
+The UI should feel slightly darker, maintaining the soft, luxurious aesthetic of a high-end dermatology product or spa brand.
+💻 Tech Stack:
+Frontend: React + Tailwind CSS
+Auth: Auth0 (real-world login integration)
+Routing: React Router
+Hosting Environment: Replit
+🎨 UI & Styling Guidelines (Dark Luxe Skin Theme):
+Background: Soft dark ivory or warm taupe tone (#F8F8F2 → darkened by ~10%)
+Primary Accent: Olive Gold (#C5C27E)
+Secondary Accent: Deep Olive (#8D8A5A)
+Text: Use slightly muted dark gray (#2C2C2C) for natural softness
+Button Hover Effects: Smooth, with subtle glow or emboss shadows
+Font: Clean sans-serif (e.g., Poppins, Inter, or DM Sans)
+Box Shadows: Gentle, ambient glow
+Border Radius: Use rounded-2xl for modern pill-shaped elements
+Button Styles:
+Google/Apple login buttons should follow Auth0 defaults with customized button containers
+Auth buttons should feel like luxury product labels — clean, subtle, minimal
+🔐 Auth0 Integration Flow:
+Register an Auth0 application (if not done already)
+Enable Google, Apple, and optionally Email/Password login in Auth0 settings
+Use Auth0Provider to wrap the app and manage routing
+After successful login, redirect to /home or /landing
+Use useAuth0() to access isAuthenticated, loginWithRedirect(), etc.
+🧱 Page Layout Details:
+✅ Login Page Structure
+Left Half (60%)
+Centered logo: “GlowScan”
+Quote or tagline: “Let your skin speak. We’ll listen.”
+Illustration: Minimal glowing outline of a face or clean abstract skincare vector
+Right Half (40%)
+Login box with gentle shadows, darker background
+Title: Welcome back to GlowScan
+Auth0 buttons:
+Sign in with Google
+Sign in with Apple
+Optional Email/Password (if enabled)
+Footer: Privacy policy and terms (light underline, elegant spacing)
+🧭 Navigation:
+After login success: redirect to /landing
+Unauthenticated users accessing other routes should be redirected back to /login
+Navbar on landing page should display user’s name and a "Logout" option (from Auth0)
+🧠 Extra UX Features (Optional):
+Add subtle animations on button hover and page load (e.g., framer-motion)
+Support dark/light toggle if desired (for future expansion)
+Include a “Why login?” or "How it works" modal popup for curious users
+📂 Folder/Structure Suggestions
+src/
+├── auth/
+│   └── AuthProviderWithHistory.jsx
+├── pages/
+│   ├── Login.jsx
+│   ├── Landing.jsx
+├── components/
+│   └── Navbar.jsx
+├── App.jsx
+├── index.js
+🧩 Deliverables:
+
+Fully functional Auth0 login integration
+Beautiful, clean dark-tinted UI
+Redirect flow to /landing
+Responsive, modern layout with luxury-skincare vibes

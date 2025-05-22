@@ -1,0 +1,49 @@
+🔐 Replit Prompt: Elegant Auth0 Login Page for Skin Analysis App (Redirects to Landing Page)
+
+Goal:
+Create a visually polished, professional login page for my skincare app (GlowScan) using Auth0. This login page should enable real, working authentication via Google, Apple, and Email, and redirect to the existing landing page upon successful login.
+🎯 Requirements
+Authentication Platform:
+Use Auth0 Universal Login (not custom-built from scratch).
+Configure OAuth providers: Google, Apple, and optionally Email/Password.
+On successful login, redirect to: /landing
+UI and UX Design:
+The overall theme should feel dermatology-aligned, clean, and slightly darker than the rest of the app:
+Background: a soft off-white or muted olive-gray (#F4F4EF or similar).
+Primary Color Accent: use #C5C27E as highlights for buttons or headings.
+Font: Choose a premium, elegant sans-serif like Poppins, Inter, or DM Sans.
+Add minimalistic visuals like a subtle pattern or blurred background glow.
+User Interface Elements:
+A centered login card with:
+Logo and app name: GlowScan
+Headline: “Your Personal AI Skin Advisor”
+Subheadline: “Sign in to begin your skin journey.”
+Sign-in options:
+Google (primary)
+Apple
+Email (optional fallback)
+Auth0 branding should remain subtle, not dominant.
+Below the card: a muted footer with a note like:
+“We never post without your permission.”
+Behavior:
+On login success: Redirect to /landing page.
+On error: Display a user-friendly toast or alert within the login UI.
+If a logged-in user revisits the login page, automatically redirect them to /landing.
+Brand Personality & Aesthetic:
+Feel: Minimalistic, clinical, trustworthy, but warm.
+The page should feel calming, not sterile—avoid pure white or jet black.
+Subtle drop shadows and large rounded corners.
+Accessibility & Responsiveness:
+Fully mobile-optimized and responsive.
+Accessible login options (keyboard/tab navigation).
+Support for dark mode toggle if possible (secondary priority).
+🔧 Functionality Setup on Replit:
+Set up Auth0 using a free developer account.
+Integrate Auth0’s React SDK or Universal Login method.
+Ensure Replit supports environment variables (client ID, domain, etc.).
+Handle auth flow via hooks/context and redirect routes properly.
+Secure any private keys with Replit’s Secrets feature.
+🧠 What to Focus On:
+Beautiful, welcoming visual impression (first-time users should trust the platform immediately).
+Smooth, bug-free login with real identity providers.
+Cohesiveness with the rest of the app design—this login should feel like the door to a luxury, AI-powered skincare brand.
