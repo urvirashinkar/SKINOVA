@@ -1,0 +1,82 @@
+Replit Prompt: "SkinCare App Frontend UI (React + Tailwind) with Elegant Olive-Themed Palette"
+
+Title:
+SkinTel – AI Skin Analysis Frontend
+Prompt for Replit (Copy-Paste This):
+📌 Objective:
+Build a responsive, aesthetic frontend for a skin analysis app using React + Tailwind CSS. The UI should feel clean, natural, and dermatology-aligned, using the following calming, skin-friendly color palette.
+🖌️ 🎨 Color Palette (Tailwind Customization Required):
+Purpose	Hex Code	Tailwind Class (Extend)
+Primary	#C5C27E	bg-primary / text-primary
+Secondary (Accent)	#8D8A5A	bg-olive / text-olive
+Background	#FFFFFF	bg-white
+Text Primary	#333333	text-gray-900
+CTA Buttons (Success)	#6BBF59	bg-success / text-success
+Error Alerts	#FF6B6B	bg-error / text-error
+In tailwind.config.js, extend your theme:
+theme: {
+  extend: {
+    colors: {
+      primary: '#C5C27E',
+      olive: '#8D8A5A',
+      success: '#6BBF59',
+      error: '#FF6B6B'
+    }
+  }
+}
+💻 Pages & Components to Build:
+1. Welcome / Landing Page
+Logo: “GlowScan” with glowing/gradient effect in #C5C27E
+Tagline: “Your AI Skin Consultant”
+Button: Start Face Scan (rounded-xl, bg-primary, text-white)
+Hero Illustration/Image (can be a skin outline or scanner)
+2. Skin Scan Results
+Card-style report showing:
+Acne: Mild/Moderate/Severe
+Dark Spots: Present/Not
+Skin Type: Dry / Oily / Combo
+Card background: bg-white, border border-primary, shadow-sm
+Report text: text-olive, font-medium
+3. Recommended Kit Page
+Section title: “Personalized Skincare Kit”
+Product cards:
+Product Image
+Name, Description
+Button: Buy Now (rounded, bg-success, hover effect)
+4. Journal / Track Progress
+Textarea with placeholder: “How’s your skin feeling today?”
+Button: Save Entry (bg-primary, hover: bg-olive)
+List of past entries with date and emoji rating
+5. Error / Loading State
+Error Box: bg-error text-white p-4 rounded-xl
+Loading Spinner: soft rotation, border-primary
+🌟 Design Inspiration
+Use soft shadows and rounded corners
+Padding should be comfortable (p-4, p-6)
+Use responsive grid/flexbox for layout
+Font: Inter, Poppins, or similar clean sans-serif
+📂 Suggested Project Folder Structure
+src/
+│
+├── components/
+│   ├── Navbar.jsx
+│   ├── FaceScanButton.jsx
+│   ├── SkinReportCard.jsx
+│   ├── ProductCard.jsx
+│   └── JournalEntry.jsx
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── Report.jsx
+│   ├── Kit.jsx
+│   └── Journal.jsx
+│
+├── App.jsx
+└── index.js
+✅ Goal:
+Deliver a pixel-perfect, soothing frontend prototype for GlowScan with clean UX, stunning visual design, and your color palette embedded in Tailwind classes.
+💡 Next Step After UI:
+Once the UI is finalized, we'll:
+Hook up the camera upload/face scan
+Connect to ML inference via Python Flask
+Store and fetch skin data + journal from Firebase
